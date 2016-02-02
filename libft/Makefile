@@ -6,7 +6,7 @@
 #    By: nromptea <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/25 13:59:57 by mbinet            #+#    #+#              #
-#    Updated: 2015/12/11 16:22:18 by nromptea         ###   ########.fr        #
+#    Updated: 2016/02/02 17:13:32 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = libft.a
 
 SRC =	ft_atoi.c\
 	ft_bzero.c\
+	ft_getnbr.c\
 	ft_isalnum.c\
 	ft_isalpha.c\
 	ft_isascii.c\
@@ -80,6 +81,7 @@ SRC =	ft_atoi.c\
 	ft_lstat.c\
 	ft_strrev.c\
 	ft_lstrev.c\
+	get_next_line.c
 
 SROBJ = $(SRC:.c=.o)
 
