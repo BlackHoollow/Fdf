@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 14:00:21 by nromptea          #+#    #+#             */
-/*   Updated: 2016/01/26 14:03:41 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/19 18:24:34 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_getnbr(char *str)
 	res = 0;
 	if (str != NULL && *str == '-')
 		return (-ft_getnbr(&str[1]));
-	while ((*str >= '0') && (*str <+ '9'))
+	while ((*str >= '0') && (*str <= '9'))
 	{
 		res = (res * 10) + *str - '0';
 		str++;
