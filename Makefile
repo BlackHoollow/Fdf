@@ -6,11 +6,11 @@
 #    By: mgras <mgras@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by mgras             #+#    #+#              #
-#    Updated: 2016/01/26 15:17:00 by nromptea         ###   ########.fr        #
+#    Updated: 2016/02/20 17:51:09 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = 
+SRC_NAME = core.c parse.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
 
@@ -25,7 +25,7 @@ OBJ      = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 INC      = $(addprefix -I, $(INC_PATH))
 LIB      = $(addprefix -L, $(LIB_PATH))
 
-NAME     = fillit
+NAME     = fdf
 CC       = gcc
 
 CFLAGS = -Wall -Wextra -Werror
