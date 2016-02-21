@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:10:46 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/21 18:22:27 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/21 18:37:48 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,11 @@ int		**split_tab(int **tab, int nb_col, int fd)
 		tab[i] = fill_it(nb_col, tab[i]);
 		tab[i][nb_col + 1] = -2;
 		split = ft_strsplit(line, ' ');
-		tab[i][j] = ft_atoi(split[i]);
+		while (split[j] != NULL)
+		{
+			tab[i][j] = ft_atoi(split[j]);
+			j++;
+		}
 		i++;
 	}
 	return (tab);
