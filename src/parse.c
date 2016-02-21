@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:10:46 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/20 19:14:14 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/21 18:22:27 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,23 +27,29 @@ void	print_tab(int **tab)
 		{
 			ft_putnbr(tab[i][j]);
 			ft_putchar(' ');
+			j++;
 		}
 		ft_putchar('\n');
+		i++;
 	}
 }
 
 void	count_line_col(int fd, int *nb_col, int *nb_line)
 {
 	char	*line;
+	char	**split;
+	int		i;
 
 	while (get_next_line(fd, &line) == 1)
 	{
-		if ((int)ft_strlen(line) > *nb_col)
-			*nb_col = ft_strlen(line);
+		i = 0;
+		split = ft_strsplit(line, ' ');
+		while (split[i] != NULL)
+			i++;
 		*nb_line = *nb_line + 1;
+		if (i > *nb_col)
+			*nb_col = i;
 	}
-	close(fd);
-	printf("%d ......... %d\n", *nb_col, *nb_line);
 }
 
 int		*fill_it(int nb, int *tab)
@@ -64,18 +70,19 @@ int		**split_tab(int **tab, int nb_col, int fd)
 	char	**split;
 	char	*line;
 	int		i;
+	int		j;
 
 	i = 0;
 	while (get_next_line(fd, &line) == 1)
 	{
-		*tab = (int *)malloc(sizeof(int) * nb_col);
-		*tab = fill_it(nb_col, *tab);
-		*tab[nb_col] = -2;
+		j = 0;
+		tab[i] = (int *)malloc(sizeof(int) * (nb_col + 1));
+		tab[i] = fill_it(nb_col, tab[i]);
+		tab[i][nb_col + 1] = -2;
 		split = ft_strsplit(line, ' ');
-		*tab[i] = ft_getnbr(split[i]);
+		tab[i][j] = ft_atoi(split[i]);
 		i++;
 	}
-	close(fd);
 	return (tab);
 }
 
@@ -89,11 +96,12 @@ int		**parsing(char *argv)
 	nb_line = 0;
 	nb_col = 0;
 	fd = open(argv, O_RDONLY);
-	ft_putendl("salut");
 	count_line_col(fd, &nb_col, &nb_line);
 	tab = (int **)malloc(sizeof(int *) * nb_line);
 	tab[nb_line] = NULL;
+	close(fd);
 	fd = open(argv, O_RDONLY);
 	tab = split_tab(tab, nb_col, fd);
+	close(fd);
 	return (tab);
 }
