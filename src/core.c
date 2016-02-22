@@ -6,17 +6,44 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 16:59:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/22 17:17:16 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/22 20:36:44 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+void	ft_exit(char *str)
+{
+	ft_putendl(str);
+	exit(1);
+}
+
+void	print_tab(int **tab, int nb_col, int nb_line)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < nb_line)
+	{
+		j = 0;
+		while (j <= nb_col)
+		{
+			ft_putnbr(ab[i][j]);
+			ft_putchar(' ');
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
+}
+
 int		main(int argc, char **argv)
 {
 	int		**tab;
 
-	argc = argc + 0;
+	if (argc != 2)
+		ft_exit("Trop d'arguments");
 	tab = parsing(argv[1]);
 	return (0);
 }
