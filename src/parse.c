@@ -6,15 +6,13 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:10:46 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/21 18:37:48 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/22 18:09:34 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-#include <stdio.h>
-
-void	print_tab(int **tab)
+void	print_tab(int **tab, int nb)
 {
 	int		i;
 	int		j;
@@ -23,7 +21,7 @@ void	print_tab(int **tab)
 	while (tab[i] != NULL)
 	{
 		j = 0;
-		while (tab[i][j] != -2)
+		while (j <= nb)
 		{
 			ft_putnbr(tab[i][j]);
 			ft_putchar(' ');
@@ -76,9 +74,9 @@ int		**split_tab(int **tab, int nb_col, int fd)
 	while (get_next_line(fd, &line) == 1)
 	{
 		j = 0;
-		tab[i] = (int *)malloc(sizeof(int) * (nb_col + 1));
+		tab[i] = (int *)malloc(sizeof(int) * (nb_col));
 		tab[i] = fill_it(nb_col, tab[i]);
-		tab[i][nb_col + 1] = -2;
+		tab[i][nb_col] = -2;
 		split = ft_strsplit(line, ' ');
 		while (split[j] != NULL)
 		{
@@ -107,5 +105,6 @@ int		**parsing(char *argv)
 	fd = open(argv, O_RDONLY);
 	tab = split_tab(tab, nb_col, fd);
 	close(fd);
+	print_tab(tab, nb_col);
 	return (tab);
 }
