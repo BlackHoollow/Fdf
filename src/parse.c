@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:10:46 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/22 20:39:01 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:23:03 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		**parsing(char *argv)
 
 	nb_line = 0;
 	nb_col = 0;
-	if (fd = open(argv, O_RDONLY) = -1)
+	if ((fd = open(argv, O_RDONLY)) == -1)
 		ft_exit("Erreur de lecture");
 	count_line_col(fd, &nb_col, &nb_line);
 	tab = (int **)malloc(sizeof(int *) * nb_line);
@@ -101,6 +101,5 @@ int		**parsing(char *argv)
 	fd = open(argv, O_RDONLY);
 	tab = split_tab(tab, nb_col, fd);
 	close(fd);
-	print_tab(tab, nb_col, nb_line);
 	return (tab);
 }
