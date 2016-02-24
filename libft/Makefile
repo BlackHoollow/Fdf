@@ -6,7 +6,7 @@
 #    By: nromptea <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/08/25 13:59:57 by mbinet            #+#    #+#              #
-#    Updated: 2016/02/02 17:13:32 by nromptea         ###   ########.fr        #
+#    Updated: 2016/02/24 18:50:03 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,8 @@ SRC =	ft_atoi.c\
 	ft_lstat.c\
 	ft_strrev.c\
 	ft_lstrev.c\
-	get_next_line.c
+	get_next_line.c\
+	ft_sqrt.c
 
 SROBJ = $(SRC:.c=.o)
 
