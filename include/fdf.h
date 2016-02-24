@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 15:53:33 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/24 17:37:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ typedef struct	s_map
 	int		nb_line;
 	int		**tab;
 }				t_map;
+
+typedef struct	s_param
+{
+	void	*mlx;
+	void	*win;
+	t_map	map;
+}				t_param;
 
 /*
 ** parse2.c
