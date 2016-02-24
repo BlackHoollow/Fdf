@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 15:40:29 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/24 15:53:33 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_map
 
 t_map	*count_line_col(int fd, t_map *map);
 t_map	*split_tab(t_map *map, int fd);
-t_map	*parsing(char *argv);
+void	parsing(char *argv, t_map *map);
 
 /*
 ** core.c
