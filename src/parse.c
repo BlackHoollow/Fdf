@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:10:46 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/23 18:23:03 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/24 14:04:55 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int		check(char *str)
 	{
 		if (ft_isdigit(str[i]) == 0)
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -101,5 +102,6 @@ int		**parsing(char *argv)
 	fd = open(argv, O_RDONLY);
 	tab = split_tab(tab, nb_col, fd);
 	close(fd);
+	print_tab(tab, nb_col, nb_line);
 	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/23 19:03:09 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/24 15:40:29 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,20 @@
 # include "libft.h"
 # include "mlx.h"
 
+typedef struct	s_map
+{
+	int		nb_col;
+	int		nb_line;
+	int		**tab;
+}				t_map;
+
 /*
-** parse.c
+** parse2.c
 */
 
-void	count_line_col(int fd, int *nb_col, int *nb_line);
-int		*fill_it(int nb, int *tab);
-int		check(char *str);
-int		**split_tab(int **tab, int nb_col, int fd);
-int		**parsing(char *argv);
+t_map	*count_line_col(int fd, t_map *map);
+t_map	*split_tab(t_map *map, int fd);
+t_map	*parsing(char *argv);
 
 /*
 ** core.c

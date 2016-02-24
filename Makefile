@@ -6,11 +6,11 @@
 #    By: mgras <mgras@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by mgras             #+#    #+#              #
-#    Updated: 2016/02/23 19:13:34 by nromptea         ###   ########.fr        #
+#    Updated: 2016/02/24 15:31:15 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = core.c parse.c
+SRC_NAME = core.c parse2.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
 
@@ -39,7 +39,7 @@ libft :
 	make -C $(LIB_PATH)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIB) $(INC) $(LDFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIB) $(INC) $(LDFLAGS) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
