@@ -6,11 +6,14 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 18:08:38 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 19:19:31 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/25 16:23:02 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#define RC2S2 0.70710678118
+#define RC2S3 0.47140452079
+#define S1RC6 0.40824829046
 
 int		define_color(int **tab, int i, int j)
 {
@@ -35,7 +38,7 @@ void	big_pixel(t_param *param, int x, int y, int color)
 		j = 0;
 		while (j < 10)
 		{
-			mlx_pixel_put(param->mlx, param->win, x + j, y + , color);
+			mlx_pixel_put(param->mlx, param->win, x + j, y + j, color);
 			j++;
 		}
 		i++;
@@ -45,26 +48,28 @@ void	big_pixel(t_param *param, int x, int y, int color)
 int		put_thing(t_param *param)
 {
 	int		x;
-	int		i;
 	int		y;
+	int		i;
 	int		j;
-	int		color;
-
-	y = 200;
+	float	a;
+	float	b;
+	
+	y = 400;
 	i = 0;
 	while (i < param->map.nb_line)
 	{
-		x = 200;
+		x = 400;
 		j = 0;
 		while (j < param->map.nb_col)
 		{
-			color = define_color(param->map.tab, i, j);
-			big_pixel(param, x, y, color);
+			a = RC2S2 * (x - y);
+			b = (RC2S3 * (param->map.tab[i][j])) - (S1RC6 * (x + y));
+			x = (int)roundf(a);
+			y = (int)roundf(b);
+			mlx_pixel_put(param->mlx, param->win, x, y, (define_color(param->map.tab, i, j)));
 			j++;
-			x = x + 20;
 		}
 		i++;
-		y = y + 20;
 	}
 	return (0);
 }

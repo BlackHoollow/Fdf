@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 19:02:13 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/25 14:15:53 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 # include <fcntl.h>
 # include "libft.h"
 # include "mlx.h"
-
-# define PI 0.78539816339
+# include "math.h"
 
 typedef struct	s_map
 {
