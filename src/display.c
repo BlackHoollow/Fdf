@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 18:08:38 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/25 16:23:02 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/02/25 19:36:15 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,23 @@ int		put_thing(t_param *param)
 	float	a;
 	float	b;
 	
-	y = 400;
+	y = 200;
 	i = 0;
 	while (i < param->map.nb_line)
 	{
-		x = 400;
+		x = 200;
 		j = 0;
 		while (j < param->map.nb_col)
 		{
-			a = RC2S2 * (x - y);
-			b = (RC2S3 * (param->map.tab[i][j])) - (S1RC6 * (x + y));
+			a = x + (0.70 * (param->map.tab[i][j]));
+			b = y + (0.70 * (param->map.tab[i][j]));
 			x = (int)roundf(a);
 			y = (int)roundf(b);
 			mlx_pixel_put(param->mlx, param->win, x, y, (define_color(param->map.tab, i, j)));
 			j++;
+			x = x + 20;
 		}
+		y = y + 20;
 		i++;
 	}
 	return (0);
