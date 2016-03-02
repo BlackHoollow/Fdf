@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 16:59:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 18:10:12 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/02 22:59:10 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,18 @@ void	print_tab(int **tab, int nb_col, int nb_line)
 
 int		main(int argc, char **argv)
 {
-	t_map	map;
-	t_param	param;
+	t_map		map;
+	t_param		param;
+	t_calcul	calcul;
 
 	if (argc != 2)
 		ft_exit("Erreur d'arguments");
 	parsing(argv[1], &map);
 	param.mlx = mlx_init();
-	param.win = mlx_new_window(param.mlx, 800, 800, "mlx 42");
+	param.win = mlx_new_window(param.mlx, HAUTEUR, LARGEUR, "mlx 42");
 	param.map = map;
+	calcul_all(&map, &calcul);
+	param.calcul = calcul;
 	mlx_key_hook(param.win, my_key_func, &param);
 
 	mlx_loop(param.mlx);

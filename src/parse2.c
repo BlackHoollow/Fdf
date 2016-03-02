@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/02/24 16:02:14 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/02 18:07:37 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,34 @@ void	parsing(char *argv, t_map *map)
 	fd = open(argv, O_RDONLY);
 	map = split_tab(map, fd);
 	close(fd);
+	map = get_altitude(map);
 	print_tab(map->tab, map->nb_col, map->nb_line);
+}
+
+t_map	*get_altitude(t_map *map)
+{
+	int		i;
+	int		zmin;
+	int		zmax;
+	int		j;
+
+	i = 0;
+	zmin = map->tab[0][0];
+	zmax = map->tab[0][0];
+	while (i < map->nb_line)
+	{
+		j = 0;
+		while (j < map->nb_col)
+		{
+			if (map->tab[i][j] <= zmin)
+				zmin = map->tab[i][j];
+			if (map->tab[i][j] >= zmax)
+				zmax = map->tab[i][j];
+			j++;
+		}
+		i++;
+	}
+	map->zmin = zmin;
+	map->zmax = zmax;
+	return (map);
 }
