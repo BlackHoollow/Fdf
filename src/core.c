@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 16:59:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/02 22:59:10 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/03 09:31:20 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int		main(int argc, char **argv)
 	calcul_all(&map, &calcul);
 	param.calcul = calcul;
 	mlx_key_hook(param.win, my_key_func, &param);
-
 	mlx_loop(param.mlx);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/02 18:07:37 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/03 09:31:32 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_map	*split_tab(t_map *map, int fd)
 	{
 		j = 0;
 		map->tab[i] = (int *)malloc(sizeof(int *) * (map->nb_col));
-		split = ft_strsplit(line , ' ');
+		split = ft_strsplit(line, ' ');
 		while (split[j] != NULL)
 		{
 			map->tab[i][j] = ft_atoi(split[j]);

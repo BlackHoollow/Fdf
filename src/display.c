@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 18:08:38 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/02 22:59:08 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/03 16:11:34 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,14 @@
 
 int		define_color(int **tab, int i, int j)
 {
-	if (tab[i][j] == 0)
+	if (tab[i][j] <= 0)
 		return (0x00FFFFFF);
-	if (tab[i][j] > 0 && tab[i][j] < 5)
+	if (tab[i][j] > 0 && tab[i][j] <= 5)
 		return (0x000000FF);
-	if (tab[i][j] > 5 && tab[i][j] < 10)
+	if (tab[i][j] > 5 && tab[i][j] <= 10)
 		return (0x00FF0000);
-	else
-		return (0x00FFFF00);
+	return (0x00FFFF00);
 }
-
-/*void	big_pixel(t_param *param, int x, int y, int color)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < 10)
-	{
-		j = 0;
-		while (j < 10)
-		{
-			mlx_pixel_put(param->mlx, param->win, x + i, y + j, color);
-			j++;
-		}
-		i++;
-	}
-}*/
 
 int		get_xy_pix(int *ynat, int i, int j, t_param *param)
 {
@@ -57,10 +38,13 @@ int		get_xy_pix(int *ynat, int i, int j, t_param *param)
 	return (xpix);
 }
 
+int		put_thing(t_param *param)
+{
 	int		i;
 	int		j;
 	int		xpix;
 	int		ypix;
+	int		color;
 
 	i = 0;
 	while (i < param->map.nb_line)
@@ -69,7 +53,9 @@ int		get_xy_pix(int *ynat, int i, int j, t_param *param)
 		while (j < param->map.nb_col)
 		{
 			xpix = get_xy_pix(&ypix, i, j, param);
-			mlx_pixel_put(param->mlx, param->win, xpix, ypix, 0x00FFFFFF);
+			color = define_color(param->map.tab, i, j);
+			mlx_pixel_put(param->mlx, param->win, xpix, ypix, color);
+			draw_line(param, xpix, ypix, i, j);
 			j++;
 		}
 		i++;
@@ -85,6 +71,8 @@ int		my_key_func(int keycode, void *param)
 	if (keycode == 53)
 		ft_exit("quit");
 	if (keycode == 37)
+	{
 		put_thing(param);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 18:25:33 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/02 21:44:25 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/03 09:31:01 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,3 @@ void	calcul_all(t_map *map, t_calcul *calcul)
 	pas(calcul);
 	origine(calcul);
 }
-
-/*void	print_res(t_calcul *calcul)
-{
-	printf("x' va de : %f a : %f\n", calcul->xpmin,calcul->xpmax);
-	printf("y' va de : %f a : %f\n", calcul->ypmin, calcul->ypmax);
-	printf("origine x = %d\norigine y = %d\n", calcul->xori, calcul->yori);
-	printf("pas de x = %d\npas de y = %d\n", calcul->pasx, calcul->pasy);
-}*/
