@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 12:24:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/03 16:14:51 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/04 18:26:50 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 	int		y1;
 
 	x = xpix;
-	if (i == param->map.nb_col - 1 || j == param->map.nb_line - 1)
+	if (j == param->map.nb_col - 1)
 		return ;
-	x1 = get_xy_pix(&y1, i + 1, j + 1, param);
+	x1 = get_xy_pix(&y1, i + 1, j, param);
+	y = ((y1 - ypix) / (x1 - xpix));
 	while (x < x1)
 	{
-		y = ((y1 - ypix) / (x1 - xpix)) * (x - xpix) + ypix;
 		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 		x++;
 	}
