@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/03 16:10:41 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/05 17:24:11 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		main(int argc, char **argv);
 */
 
 int		define_color(int **tab, int i, int j);
-int		get_xy_pix(int *ynat, int i, int j, t_param *param);
+float	get_xy_pix(float *ynat, int i, int j, t_param *param);
 int		put_thing(t_param *param);
 int		my_key_func(int keycode, void *param);
 
@@ -95,5 +95,6 @@ void	calcul_all(t_map *map, t_calcul *calcul);
 
 void	draw_line(t_param *param, int xpix, int ypix, int i, int j);
 void	draw_right(t_param *param, int xpix, int ypix, int i, int j);
+void	draw_down(t_param *param, int xpix, int ypix, int i, int j);
 
 #endif

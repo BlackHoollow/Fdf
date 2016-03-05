@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 18:08:38 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/04 18:25:18 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/05 17:25:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int		define_color(int **tab, int i, int j)
 	return (0x00FFFF00);
 }
 
-int		get_xy_pix(int *ynat, int i, int j, t_param *param)
+float	get_xy_pix(float *ynat, int i, int j, t_param *param)
 {
-	int		xpix;
-	int		ypix;
+	float	xpix;
+	float	ypix;
 	float	xpr;
 	float	ypr;
 
@@ -42,8 +42,8 @@ int		put_thing(t_param *param)
 {
 	int		i;
 	int		j;
-	int		xpix;
-	int		ypix;
+	float	xpix;
+	float	ypix;
 	int		color;
 
 	i = 0;
