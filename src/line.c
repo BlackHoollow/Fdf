@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 12:24:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/06 19:06:15 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/06 19:45:46 by mbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	draw_line(t_param *param, int xpix, int ypix, int i, int j)
 	draw_right(param, xpix, ypix, i, j);
 	draw_down(param, xpix, ypix, i, j);
 }
-
-#include <stdio.h>
 
 void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 {
@@ -35,7 +33,7 @@ void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 		x = xpix;
 		while (x < x1)
 		{
-			y = ypix + (y1 - ypix)/(x1 - xpix) * (x - xpix);
+			y = ypix + (y1 - ypix) / (x1 - xpix) * (x - xpix);
 			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 			x = x + 1;
 		}
@@ -45,21 +43,21 @@ void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 		y = ypix;
 		while (y < y1)
 		{
-			x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+			x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
 			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 			y = y + 1;
 		}
 		y = y1;
 		while (y < ypix)
 		{
-			x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+			x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
 			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 			y = y + 1;
 		}
 	}
 }
 
-void	draw_down(t_param *param, int xpix, int ypix, int i , int j)
+void	draw_down(t_param *param, int xpix, int ypix, int i, int j)
 {
 	float	x;
 	float	y;
@@ -72,14 +70,14 @@ void	draw_down(t_param *param, int xpix, int ypix, int i , int j)
 	y = ypix;
 	while (y < y1)
 	{
-		x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+		x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
 		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 		y = y + 1;
 	}
 	y = y1;
 	while (y < ypix)
 	{
-		x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+		x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
 		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 		y = y + 1;
 	}
