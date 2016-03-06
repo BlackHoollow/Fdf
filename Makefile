@@ -6,7 +6,7 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/03 13:06:30 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/06 19:38:51 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,5 +51,10 @@ clean :
 
 fclean : clean
 	@$(RM) -v $(NAME)
+
+git :
+	git add -A
+	git commit -m "make git"
+	git push
 
 re: fclean all
