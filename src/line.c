@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 12:24:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/05 19:14:47 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/06 19:06:15 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	draw_line(t_param *param, int xpix, int ypix, int i, int j)
 	draw_right(param, xpix, ypix, i, j);
 	draw_down(param, xpix, ypix, i, j);
 }
+
+#include <stdio.h>
 
 void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 {
@@ -47,6 +49,13 @@ void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
 			y = y + 1;
 		}
+		y = y1;
+		while (y < ypix)
+		{
+			x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
+			y = y + 1;
+		}
 	}
 }
 
@@ -62,6 +71,13 @@ void	draw_down(t_param *param, int xpix, int ypix, int i , int j)
 	x1 = get_xy_pix(&y1, i + 1, j, param);
 	y = ypix;
 	while (y < y1)
+	{
+		x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
+		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
+		y = y + 1;
+	}
+	y = y1;
+	while (y < ypix)
 	{
 		x = xpix + (x1 - xpix)/(y1 - ypix) * (y - ypix);
 		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
