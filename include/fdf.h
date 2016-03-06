@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/06 19:52:39 by mbinet           ###   ########.fr       */
+/*   Updated: 2016/03/06 20:21:27 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int				main(int argc, char **argv);
 **	display.c
 */
 
-int				define_color(int **tab, int i, int j);
 float			get_xy_pix(float *ynat, int i, int j, t_param *param);
 int				put_thing(t_param *param);
 int				my_key_func(int keycode, void *param);

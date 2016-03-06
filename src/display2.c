@@ -6,22 +6,11 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 20:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/06 20:10:38 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/06 20:21:35 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int		define_color(int **tab, int i, int j)
-{
-	if (tab[i][j] <= 0)
-		return (0x00FFFFFF);
-	if (tab[i][j] > 0 && tab[i][j] <= 5)
-		return (0x000000FF);
-	if (tab[i][j] > 5 && tab[i][j] <= 10)
-		return (0x00FF0000);
-	return (0x00FFFF00);
-}
 
 float	get_xy_pix(float *ynat, int i, int j, t_param *param)
 {
@@ -44,7 +33,6 @@ int		put_thing(t_param *param)
 	int		j;
 	float	xpix;
 	float	ypix;
-	int		color;
 
 	i = 0;
 	while (i < param->map.nb_line)
@@ -53,8 +41,7 @@ int		put_thing(t_param *param)
 		while (j < param->map.nb_col)
 		{
 			xpix = get_xy_pix(&ypix, i, j, param);
-			color = define_color(param->map.tab, i, j);
-			mlx_pixel_put(param->mlx, param->win, xpix, ypix, color);
+			mlx_pixel_put(param->mlx, param->win, xpix, ypix, 0x00FFFFFF);
 			draw_line(param, xpix, ypix, i, j);
 			j++;
 		}
