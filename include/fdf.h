@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/06 20:21:27 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/07 17:13:29 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ typedef struct	s_calcul
 	int			pasy;
 }				t_calcul;
 
+typedef struct	s_pnt
+{
+	int			i;
+	int			j;
+}				t_pnt;
+
 typedef struct	s_param
 {
 	void		*mlx;
@@ -75,7 +81,6 @@ int				main(int argc, char **argv);
 **	display.c
 */
 
-float			get_xy_pix(float *ynat, int i, int j, t_param *param);
 int				put_thing(t_param *param);
 int				my_key_func(int keycode, void *param);
 
@@ -92,8 +97,15 @@ void			calcul_all(t_map *map, t_calcul *calcul);
 **	line.c
 */
 
-void			draw_line(t_param *param, int xpix, int ypix, int i, int j);
-void			draw_right(t_param *param, int xpix, int ypix, int i, int j);
-void			draw_down(t_param *param, int xpix, int ypix, int i, int j);
+void			draw_line(t_param *param, int xpix, int ypix, t_pnt pnt);
+void			draw_right(t_param *param, int xpix, int ypix, t_pnt pnt);
+void			draw_right_bis(t_param *param, int xpix, int ypix, t_pnt pnt);
+void			draw_down(t_param *param, int xpix, int ypix, t_pnt pnt);
+
+/*
+**	fdp.c
+*/
+
+float			get_xy_pix(float *ynat, int i, int j, t_param *param);
 
 #endif

@@ -6,28 +6,28 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 12:24:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/06 19:45:46 by mbinet           ###   ########.fr       */
+/*   Updated: 2016/03/07 16:55:06 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(t_param *param, int xpix, int ypix, int i, int j)
+void	draw_line(t_param *param, int xpix, int ypix, t_pnt pnt)
 {
-	draw_right(param, xpix, ypix, i, j);
-	draw_down(param, xpix, ypix, i, j);
+	draw_right(param, xpix, ypix, pnt);
+	draw_down(param, xpix, ypix, pnt);
 }
 
-void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
+void	draw_right(t_param *param, int xpix, int ypix, t_pnt pnt)
 {
 	float	x;
 	float	y;
 	float	x1;
 	float	y1;
 
-	if (j == param->map.nb_col - 1)
+	if (pnt.j == param->map.nb_col - 1)
 		return ;
-	x1 = get_xy_pix(&y1, i, j + 1, param);
+	x1 = get_xy_pix(&y1, pnt.i, pnt.j + 1, param);
 	if ((y1 - ypix) / (x1 - xpix) > -1 && (y1 - ypix) / (x1 - xpix) < 1)
 	{
 		x = xpix;
@@ -40,33 +40,44 @@ void	draw_right(t_param *param, int xpix, int ypix, int i, int j)
 	}
 	else
 	{
-		y = ypix;
-		while (y < y1)
-		{
-			x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
-			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
-			y = y + 1;
-		}
-		y = y1;
-		while (y < ypix)
-		{
-			x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
-			mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
-			y = y + 1;
-		}
+		draw_right_bis(param, xpix, ypix, pnt);
 	}
 }
 
-void	draw_down(t_param *param, int xpix, int ypix, int i, int j)
+void	draw_right_bis(t_param *param, int xpix, int ypix, t_pnt pnt)
+{
+	float	y;
+	float	x;
+	float	x1;
+	float	y1;
+
+	x1 = get_xy_pix(&y1, pnt.i, pnt.j + 1, param);
+	y = ypix;
+	while (y < y1)
+	{
+		x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
+		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
+		y = y + 1;
+	}
+	y = y1;
+	while (y < ypix)
+	{
+		x = xpix + (x1 - xpix) / (y1 - ypix) * (y - ypix);
+		mlx_pixel_put(param->mlx, param->win, x, y, 0x00FFFFFF);
+		y = y + 1;
+	}
+}
+
+void	draw_down(t_param *param, int xpix, int ypix, t_pnt pnt)
 {
 	float	x;
 	float	y;
 	float	x1;
 	float	y1;
 
-	if (i == param->map.nb_line - 1)
+	if (pnt.i == param->map.nb_line - 1)
 		return ;
-	x1 = get_xy_pix(&y1, i + 1, j, param);
+	x1 = get_xy_pix(&y1, pnt.i + 1, pnt.j, param);
 	y = ypix;
 	while (y < y1)
 	{
