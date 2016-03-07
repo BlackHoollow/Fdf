@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 15:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/03 09:31:32 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/07 17:18:27 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	parsing(char *argv, t_map *map)
 	map = split_tab(map, fd);
 	close(fd);
 	map = get_altitude(map);
-	print_tab(map->tab, map->nb_col, map->nb_line);
 }
 
 t_map	*get_altitude(t_map *map)

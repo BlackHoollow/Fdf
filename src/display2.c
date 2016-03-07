@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/06 20:10:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/07 16:59:49 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/07 17:15:55 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ int		put_thing(t_param *param)
 
 int		my_key_func(int keycode, void *param)
 {
-	ft_putstr("Key event : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
 	if (keycode == 53)
 		ft_exit("quit");
 	if (keycode == 37)
