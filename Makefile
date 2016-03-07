@@ -6,7 +6,7 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/06 20:10:53 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/07 16:29:42 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ LDFLAGS = -lft
 
 all: libft $(NAME)
 
-.PHONY: libft clean fclean re $(NAME)
+.PHONY: libft clean fclean re $(NAME) gcp
 
 libft :
 	make -C $(LIB_PATH)
@@ -52,7 +52,7 @@ clean :
 fclean : clean
 	@$(RM) -v $(NAME)
 
-git :
+gcp :
 	git add -A
 	git commit -m "make git"
 	git push
