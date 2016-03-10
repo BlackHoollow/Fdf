@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 16:59:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/03 09:31:20 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/09 17:03:51 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		main(int argc, char **argv)
 		ft_exit("Erreur d'arguments");
 	parsing(argv[1], &map);
 	param.mlx = mlx_init();
-	param.win = mlx_new_window(param.mlx, HAUTEUR, LARGEUR, "mlx 42");
+	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "mlx 42");
 	param.map = map;
 	calcul_all(&map, &calcul);
 	param.calcul = calcul;
