@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/03 12:24:39 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/07 16:55:06 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/24 13:42:44 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	draw_line(t_param *param, int xpix, int ypix, t_pnt pnt)
 {
-	draw_right(param, xpix, ypix, pnt);
-	draw_down(param, xpix, ypix, pnt);
+	xpix = xpix + 0;
+	ypix = ypix + 0;
+	param = param + 0;
+	pnt .i = pnt.i + 0;
+//	draw_right(param, xpix, ypix, pnt);
+//	draw_down(param, xpix, ypix, pnt);
 }
 
 void	draw_right(t_param *param, int xpix, int ypix, t_pnt pnt)
