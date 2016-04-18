@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 15:17:20 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/24 13:45:00 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/24 16:52:17 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include "mlx.h"
 # include "math.h"
 
-# define HAUTEUR 200
-# define LARGEUR 200
+# define HAUTEUR 1000
+# define LARGEUR 1000
 # define SQRT2S2 0.7071067812
 
 typedef struct	s_map
